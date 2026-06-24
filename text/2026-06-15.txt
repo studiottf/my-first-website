@@ -1,0 +1,15 @@
+cmd
+command
+
+1. git --version
+2. node --version, 
+3. npm --version
+
+Set-ExecutionPolicy RemoteSigned 
+-Scope CurrentUser
+
+npm install -g @anthropic-ai/claude-code
+
+\\192.168.109.10\ClaudeCode_Share
+
+my_ai_web

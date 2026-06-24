@@ -1,0 +1,102 @@
+# **2. Mac 설치 가이드**
+
+macOS 사용자는 Homebrew를 사용하여 설치합니다. 터미널을 열고 다음 단계를 따라주세요.
+
+<aside>
+
+**시스템 요구사항**
+
+macOS 10.15 이상, 4GB 이상 RAM, 인터넷 연결이 필요합니다.
+
+</aside>
+
+### **0. 터미널 실행**
+
+Finder에서 **"터미널"**을 검색하여 실행합니다.
+
+### [Step 1] Homebrew 및 Node.js 설치
+
+1. `Cmd + Space`를 눌러 Spotlight를 켜고 "터미널(Terminal)"을 실행합니다.
+2. Mac에 패키지 관리 도구인 Homebrew가 없다면 아래 스크립트를 복사하여 설치합니다. *(Git은 Mac 개발자 도구에 기본 포함되어 있거나 Homebrew 설치 시 자동 연동됩니다.)*
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+1. Homebrew 설치가 완료되면 이를 이용해 Node.js 런타임을 내려받습니다.
+
+```bash
+brew install node
+```
+
+### [Step 2] 설치 상태 검증
+
+터미널에서 세 도구가 올바르게 정착했는지 버전을 점검합니다.
+
+```bash
+git --version
+node --version
+npm --version
+```
+
+### [Step 3] Claude Code 설치 및 권한 부여
+
+Mac 환경에서는 글로벌 전역 패키지 설치 시 시스템 권한(`sudo`)이 필요할 수 있습니다.
+
+```bash
+sudo npm install -g @anthropic-ai/claude-code
+```
+
+<aside>
+
+**Password 입력 안내**
+
+`Password:`가 표시되면**Mac 로그인 비밀번호**를 입력하세요. 입력 시 화면에 표시되지 않지만 정상적으로 입력되고 있습니다.
+
+</aside>
+
+### [Step 4] 명령어 미인식(Command Not Found) 해결법
+
+만약 설치 후에도 `claude` 명령어를 찾지 못한다면, Homebrew 경로와 npm 전역 경로 간의 심볼릭 링크(연결 통로)가 꼬인 것입니다. 터미널에 아래 명령어를 입력하여 강제로 링크를 재연결합니다.
+
+```bash
+# 깨지거나 잘못 지정된 기존 링크 제거
+rm /opt/homebrew/bin/claude
+
+# npm 글로벌 폴더 내부의 실제 실행 파일과 Homebrew 경로 강제 연결
+ln -s $(npm root -g)/@anthropic-ai/claude-code/bin/claude /opt/homebrew/bin/claude
+```
+
+연결 후 아래 자가 진단 명령어를 실행하여 모두 `OK`가 뜨는지 확인합니다.
+
+```bash
+claude --version
+claude doctor
+```
+
+<aside>
+💡
+
+**claude doctor**
+
+**`claude doctor`**: Claude Code 내부의 상태 진단 툴로, 네트워크, 파일 권한, API 바인딩 상태를 검사하여 해결책을 주는 명령어입니다.
+
+</aside>
+
+<aside>
+
+**Mac 설치 완료!**
+
+Git, Node.js, Claude Code 설치가 모두 완료되었습니다. 아래의 "VSCode 설정 및 실행 확인" 섹션으로 진행하세요!
+
+</aside>
+
+
+claude 권한 최적화 : .claude/settings.local.json
+React 개발환경 : vite + MUI 생태계 설치
+문서 시스템 : 외부 문서 다운로드 및 @연결자 설정
+claude.md : 프로젝트별 역할과 규칙 설정
+
+live server
+claude --dangerously-skip-permissions
+

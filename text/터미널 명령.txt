@@ -1,0 +1,28 @@
+터미널
+Windows 터미널(cmd) / PowerShell / CLI
+Mac/Linux : Terminal, Bash, zsh
+
+CLI(Command Line Interface) : 마우스 없이 텍스트 명령어로 컴퓨터를 조작하는 방식
+- 자동화 / 반복 적인 작업에 매우 강하다.
+- 서버 환경에서는 GUI가 없어 CLI 필수
+
+GUI : 폴더 아이콘 더블클릭
+
+
+터미널 줄바꿈 : shift + Enter, Option + Enter
+
+터미널 명령어
+현재위치 확인 : pwd
+폴더 이동 : cd 폴더이름
+상위 폴더 이동 : cd..
+홈으로 이동 : cd\    macos : cd ~
+상세 정보 목록 표시 : dir      mac : ls
+숨김 파일 목록 표시 : dir/a   mac : ls /a
+폴더 생성 : mkdir 폴더명
+파일 복사 : copy 원본 대상   mac : cp 원본 대상
+파일 이동 : move 원본 대상  mac : mv 원본 대상
+파일 삭제 : del 파일이름   mac : rm 파일명
+폴더 삭제 : rmdir 폴더이름   mac : rm -r 폴더명
+파일 내용 보기 : type 파일명    mac : cat 파일명
+
+
